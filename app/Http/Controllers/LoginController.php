@@ -27,7 +27,10 @@ class LoginController extends Controller
         ->where('Password',request()->input('password'))
         ->first();
         $remember_me = request()->has('remember') ? true : false; 
-        if (Auth::loginUsingId($user->OperatorID,$remember_me)) {
+        if (empty($user)) {
+            return redirect(route('showloginform'))->with('flash', 'Estos datos son incorrectos');
+        }
+        elseif (Auth::loginUsingId($user->OperatorID,$remember_me)) {
             // Authentication passed...
             return redirect(route('home'));
         }else{

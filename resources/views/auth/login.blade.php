@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -39,23 +37,21 @@
       <div class="ms-circle12 ms-child"></div>
     </div>
   </div>
-
-  <!-- Overlays -->
-  <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
-  <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight"></div>
-
   <!-- Main Content -->
   <main class="body-content">
-
     <!-- Body Content Wrapper -->
-    <div class="ms-content-wrapper ms-auth">
-
+    <div class="ms-content-wrapper ms-auth">   
+        @if(session()->has('flash'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('flash') }}
+            </div>
+        @endif
       <div class="ms-auth-container">
-        <div class="ms-auth-col">
+        <div class="col-md-12">
           <div class="ms-auth-form">
             <form class="needs-validation" novalidate="" method="post" action="{{ route('login') }}">
                 {{ csrf_field() }}
-              <h1>Sign in to account</h1>
+              <h2>Sign in to account</h2>
               <p>Enter your email and password to continue</p>
               <div class="mb-3">
                 <label for="validationCustom08">Enter your Username</label>
@@ -88,7 +84,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- Forgot Password Modal -->
@@ -125,7 +120,5 @@
   <!-- Global Required Scripts End -->
   <!-- Medboard core JavaScript -->
   <script src="{{ asset('assets/js/framework.js') }}"></script>
-  <!-- Settings -->
-  <script src="{{ asset('assets/js/settings.js') }}"></script>
 </body>
 </html>
