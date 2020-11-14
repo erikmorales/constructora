@@ -7,25 +7,59 @@
     </div>
     <!-- Navigation -->
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
-      <!-- Dashboard -->
-      <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
-          <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
-        </a>
-        <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-          <li> <a href="{{ route('home') }}">Dashboard</a> </li>
-        </ul>
-      </li>
-      <!-- /Dashboard -->
-      <!-- Projects -->
-      <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#project" aria-expanded="false" aria-controls="project">
-          <span><i class="fas fa-project-diagram"></i>Projects</span>
-        </a>
-        <ul id="project" class="collapse" aria-labelledby="project" data-parent="#side-nav-accordion">
-          <li> <a href="pages/doctor/add-doctor.html">Add Project</a> </li>
-          <li> <a href="{{ route('listar.proyectos') }}">Projects List</a> </li>
-        </ul>
-      </li>
+        <!-- Dashboard -->
+        <li class="menu-item">
+          <a href="{{ route('home') }}">
+            <span><i class="material-icons fs-16"></i>Dashboard</span>
+          </a>
+        </li>
+        <!-- /Dashboard -->
+        <!-- customers -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#doctor" aria-expanded="false" aria-controls="doctor">
+              <span><i class="fas fa-user"></i>Customers</span>
+            </a>
+            <ul id="doctor" class="collapse" aria-labelledby="doctor" data-parent="#side-nav-accordion">
+              <li> <a href="../doctor/add-doctor.html">Add Clients</a> </li>
+              <li> <a href="../doctor/doctor-list.html">Client list</a> </li>
+            </ul>
+        </li>
+
+        <!-- customers -->
+        <!-- Projects -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#patient" aria-expanded="false" aria-controls="patient">
+              <span><i class="fas fa-project-diagram"></i>Projects</span>
+            </a>
+            <ul id="patient" class="collapse" aria-labelledby="patient" data-parent="#side-nav-accordion">
+              <li> <a href="../patient/add-patient.html">Add Project</a> </li>
+              <li> <a href="{{ route('listar.proyectos') }}">Projects List</a> </li>
+
+            </ul>
+        </li>
+        <!-- /Projects -->
+        <!-- Work orders -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#department" aria-expanded="false" aria-controls="department">
+              <span><i class="far fa-file-alt"></i>Work orders</span>
+            </a>
+            <ul id="department" class="collapse" aria-labelledby="department" data-parent="#side-nav-accordion">
+              <li> <a href="../department/add-department.html">New Work Order</a> </li>
+              <li> <a href="../department/department-list.html">Orders List</a> </li>
+
+            </ul>
+        </li>
+        <!-- /Work orders -->
+        <!-- /Administrator -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#notice" aria-expanded="false" aria-controls="notice">
+              <span><i class="far fa-user"></i>Administrator</span>
+            </a>
+            <ul id="notice" class="collapse" aria-labelledby="notice" data-parent="#side-nav-accordion">
+              <li> <a href="../notice/add-notice.html">Add Users</a> </li>
+              <li> <a href="../notice/add-notice.html">Users List</a> </li>
+            </ul>
+        </li>
+        <!-- /Administrator -->
     </ul>
   </aside>
