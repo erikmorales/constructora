@@ -12,7 +12,7 @@
         <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="https://via.placeholder.com/270x270" alt="people"> </a>
         <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
           <li class="dropdown-menu-header">
-            <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, {{ auth()->user()->Name }} {{ auth()->user()->LastName }}</span></h6>
+            <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, {{ auth()->user()->Nombre }} {{ auth()->user()->Apellido_Paterno }} {{ auth()->user()->Apellido_Materno }}</span></h6>
           </li>
           <li class="dropdown-divider"></li>
           <li class="dropdown-menu-footer">

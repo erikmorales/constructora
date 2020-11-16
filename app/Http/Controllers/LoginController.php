@@ -23,14 +23,14 @@ class LoginController extends Controller
             'username' => 'required|string',
             'password' => 'required|string'
             ]);
-        $user = User::where('Username',request()->input('username'))
+        $user = User::where('Usuario',request()->input('username'))
         ->where('Password',request()->input('password'))
         ->first();
         $remember_me = request()->has('remember') ? true : false; 
         if (empty($user)) {
             return redirect(route('showloginform'))->with('flash', 'Estos datos son incorrectos');
         }
-        elseif (Auth::loginUsingId($user->OperatorID,$remember_me)) {
+        elseif (Auth::loginUsingId($user->Empleado_ID,$remember_me)) {
             // Authentication passed...
             return redirect(route('home'));
         }else{

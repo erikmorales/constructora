@@ -3,7 +3,7 @@
     <div class="logo-sn ms-d-block-lg">
       <a class="pl-0 ml-0 text-center" href="index.html"> <img src="https://via.placeholder.com/216x62" alt="logo"> </a>
       <a href="#" class="text-center ms-logo-img-link"> <img src="{{ asset('assets/img/User-Account-Person-PNG-File.png') }}" alt="logo"></a>
-      <h5 class="text-center text-white mt-2">{{ auth()->user()->Name }} {{ auth()->user()->LastName }}</h5>
+      <h5 class="text-center text-white mt-2">{{ auth()->user()->Nombre }} {{ auth()->user()->Apellido_Paterno }} {{ auth()->user()->Apellido_Materno }}</h5>
     </div>
     <!-- Navigation -->
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">

@@ -18,3 +18,7 @@ Route::post('/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/proyects', 'ProyectoController@index')->name('listar.proyectos');
+
+Route::get('/tickets/{id}', 'TicketController@index')->name('listar.tickets');
+
+Route::get('/ticket/{id}','TicketController@create')->name('crear.ticket');

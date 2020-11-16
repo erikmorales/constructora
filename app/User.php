@@ -10,8 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'operators';
-    protected $primaryKey = 'OperatorID';
+    protected $table = 'personal';
+    protected $primaryKey = 'Empleado_ID';
 
 
     /**
@@ -20,9 +20,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'Username', 'Password', 'Email', 'Name', 'LastName', 'Phone','Mobile','Direccion',
-        'Zona','Latitud','Longitud','CI','Calle_Principal','Calle_Colindante1','Calle_Colindante2',
-        'Numeral'
+        'Emp_ID', 'Nombre', 'Apellido_Paterno', 'Apellido_Materno', 'Nick_Name', 'Estado','Ciudad','Zip_Code',
+        'Calle','Numero','Cargo','Numero_Seguro_Social','Fecha_Nacimiento','Numero_Licencia_Conducir','Numero_Permiso_Trabajo',
+        'Fecha_Expiracion_Trabajo','Numero_Residente','email','Telefono','Usuario','Indice_produccion','Nro_Bono','Spec_Bon1',
+        'Not_Bon','Extra_Mon1','Benefit1','Benefit2','empresa'
     ];
 
     /**

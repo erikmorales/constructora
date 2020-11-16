@@ -3,45 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Proyecto;
+use App\Ticket;
 use DataTables;
 
-class ProyectoController extends Controller
+class TicketController extends Controller
 {
-    public function __construct()
-    {  
-        $this->middleware('auth');   
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($id,Request $request)
     {
         if(request()->ajax()){
-            $data = Proyecto::select('proyectos.Pro_ID','proyectos.Nombre','proyectos.Estado',
-            'proyectos.Ciudad','proyectos.Calle','proyectos.Fecha_Inicio','proyectos.Fecha_Fin',
-            'empresas.Nombre as Empresa','Nombre_Estatus')
-            ->where('Project_Manager_ID',auth()->user()->Empleado_ID)
-            ->orWhere('Coordinador_Obra_ID',auth()->user()->Empleado_ID)
-            ->orWhere('Foreman_ID',auth()->user()->Empleado_ID)
-            ->orWhere('Coordinador_ID',auth()->user()->Empleado_ID)
-            ->orWhere('Manager_ID',auth()->user()->Empleado_ID)
-            ->leftJoin('empresas','proyectos.Emp_ID','=','empresas.Emp_ID')
-            ->leftJoin('estatus','proyectos.Estatus_ID','=','estatus.Estatus_ID')
+            $data = Ticket::where('proyecto_id',$id)
+            ->where('empleado_id',auth()->user()->Empleado_ID)
             ->get();
-            
+
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('acciones', function($data){
-                        $button = '<a href="'.route('listar.tickets',['id'=>$data->Pro_ID]).'"><i class="fas fa-clipboard-list ms-text-primary"></i></a>';
+                        $button = "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>";
                         return $button;
                     })
                     ->rawColumns(['acciones'])
                     ->make(true);
         }
-        return view('panel.proyecto.list');
+        return view('panel.ticket.list',compact('id'));
     }
 
     /**
@@ -49,9 +37,9 @@ class ProyectoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('panel.ticket.new',compact('id'));
     }
 
     /**
