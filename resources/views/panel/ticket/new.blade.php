@@ -14,25 +14,25 @@
                         <div class="form-group row">
                             <label for="general" class="col-sm-3 col-form-label col-form-label-sm">General Contractor</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="general" placeholder="General Contractor">
+                              <input type="text" class="form-control form-control-sm" id="general" placeholder="General Contractor" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="ptw" class="col-sm-3 col-form-label col-form-label-sm">PTW Job</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="ptw" placeholder="PTW Job">
+                              <input type="text" class="form-control form-control-sm" id="ptw" placeholder="PTW Job" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="project" class="col-sm-3 col-form-label col-form-label-sm">Project Name</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="project" placeholder="Project Name">
+                              <input type="text" class="form-control form-control-sm" id="project" placeholder="Project Name" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="address" class="col-sm-3 col-form-label col-form-label-sm">Project Address</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="address" placeholder="Project Address">
+                              <input type="text" class="form-control form-control-sm" id="address" placeholder="Project Address" disabled="disabled">
                             </div>
                         </div>
                     </div>
@@ -116,9 +116,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label for="material" class="col-sm-2 col-form-label col-form-label-sm">Material</label>
-                            <div class="col-sm-10">
-                                <select name="" id="" class="form-control form-control-sm"></select>
+                            <div class="col-md-12">
+                                    <label for="material" class="col-sm-2 col-form-label col-form-label-sm">Material</label>
+                                    <select name="" id="" class="form-control form-control-sm"></select>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -140,10 +140,22 @@
                     </div>
                     <div class="col-md-8">
                         <div class="form-group row">
-                            <label for="class" class="col-sm-2 col-form-label col-form-label-sm">CLASS</label>
-                            <div class="col-sm-10">
-                                <select name="" id="" class="form-control form-control-sm"></select>
-                            </div>
+                            <div class="col-md-10">
+                                    <label for="material" class="col-sm-2 col-form-label col-form-label-sm">CLASS</label>
+                                    <select name="" id="" class="form-control form-control-sm">
+                                      <option value="">Seleccione...</option>
+                                            <option value="">Project Manager</option>
+                                            <option value="">Superintendent</option>
+                                            <option value="">Foreman</option>
+                                            <option value="">Painter</option>
+                                            <option value="">Paper hander</option>
+                                            <option value="">Finisher</option>
+                                            <option value="">Apprentice</option>
+                                            <option value="">Carpenter</option>
+                                            <option value="">Truck Driver/gas</option>
+                                    </select>
+                                </div>
+                            <label for="class" class="col-sm-2 col-form-label col-form-label-sm"><button type="button" class="btn btn-success">Agregar</button></label>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover thead-light">

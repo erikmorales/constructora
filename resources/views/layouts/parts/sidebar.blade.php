@@ -14,14 +14,26 @@
           </a>
         </li>
         <!-- /Dashboard -->
+
+          <!-- Materials -->
+      <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#materials" aria-expanded="false" aria-controls="dashboard">
+          <span><i class="material-icons fs-16">dashboard</i>Materials </span>
+        </a>
+        <ul id="materials" class="collapse" aria-labelledby="materials" data-parent="#side-nav-accordion">
+              <li> <a href="{{ route('materiales') }}">Materials list</a> </li>
+        </ul>
+      </li>
+      <!-- /Materials -->
+
         <!-- customers -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#doctor" aria-expanded="false" aria-controls="doctor">
               <span><i class="fas fa-user"></i>Customers</span>
             </a>
             <ul id="doctor" class="collapse" aria-labelledby="doctor" data-parent="#side-nav-accordion">
-              <li> <a href="../doctor/add-doctor.html">Add Clients</a> </li>
-              <li> <a href="../doctor/doctor-list.html">Client list</a> </li>
+              <li> <a href="{{ route('crear') }}">Add Clients</a> </li>
+              <li> <a href="{{ route('clientes') }}">Client list</a> </li>
             </ul>
         </li>
 

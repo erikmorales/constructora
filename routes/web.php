@@ -22,3 +22,9 @@ Route::get('/proyects', 'ProyectoController@index')->name('listar.proyectos');
 Route::get('/tickets/{id}', 'TicketController@index')->name('listar.tickets');
 
 Route::get('/ticket/{id}','TicketController@create')->name('crear.ticket');
+
+Route::get('materiales', 'MaterialesController@index')->name('materiales');
+
+Route::get('clientes', 'ClientesController@index')->name('clientes');
+
+Route::get('crear','ClientesController@create')->name('crear');
