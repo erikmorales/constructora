@@ -14,25 +14,25 @@
                         <div class="form-group row">
                             <label for="general" class="col-sm-3 col-form-label col-form-label-sm">General Contractor</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="general" placeholder="General Contractor" disabled="disabled">
+                              <input type="text" class="form-control form-control-sm" id="general" placeholder="General Contractor" value="{{ $proyecto->Contratista_General }}" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="ptw" class="col-sm-3 col-form-label col-form-label-sm">PTW Job</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="ptw" placeholder="PTW Job" disabled="disabled">
+                              <input type="text" class="form-control form-control-sm" id="ptw" placeholder="PTW Job" value="{{ $n_ticket }}" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="project" class="col-sm-3 col-form-label col-form-label-sm">Project Name</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="project" placeholder="Project Name" disabled="disabled">
+                              <input type="text" class="form-control form-control-sm" id="project" placeholder="Project Name" value="{{ $proyecto->Nombre }}" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="address" class="col-sm-3 col-form-label col-form-label-sm">Project Address</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="address" placeholder="Project Address" disabled="disabled">
+                              <input type="text" class="form-control form-control-sm" id="address" placeholder="Project Address" value="{{ $address }}" disabled="disabled">
                             </div>
                         </div>
                     </div>
@@ -40,13 +40,13 @@
                         <div class="form-group row">
                             <label for="date_work" class="col-sm-3 col-form-label col-form-label-sm">Date of Work</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="date_work" placeholder="Date of Work">
+                              <input type="date" class="form-control form-control-sm" id="date_work" placeholder="Date of Work" value="{{ date('Y-m-d') }}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="foreman_name" class="col-sm-3 col-form-label col-form-label-sm">Foreman Name</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control form-control-sm" id="foreman_name" placeholder="Foreman Name">
+                              <input type="text" class="form-control form-control-sm" id="foreman_name" placeholder="Foreman Name" value="{{ $name }}">
                             </div>
                         </div>
                         <ul class="ms-list d-flex">
@@ -114,51 +114,34 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                    <label for="material" class="col-sm-2 col-form-label col-form-label-sm">Material</label>
-                                    <select name="" id="" class="form-control form-control-sm"></select>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table table-hover thead-light">
+                            <table class="table table-hover thead-light" id="table-material">
                                <thead>
                                   <tr>
                                      <th scope="col">QTY</th>
-                                     <th scope="col">Material Description</th>
+                                     <th>Material Description</th>
+                                     <th width="1%" scope="col"></th>
                                   </tr>
                                </thead>
                                <tbody>
-                                  <tr>
-                                     <th scope="row"><input type="number" name="" id="" step="1.0" min="0" value="0" class="form-control form-control-sm"></th>
-                                     <td><input type="text" name="" id="" class="form-control form-control-sm" readonly></td>
-                                  </tr>
+                                   <tr id="none_tr_mat"> <td colspan="3" class="text-center">I don't add anything</td> </tr>
                                </tbody>
+                               <tfoot>
+                                   <tr>
+                                       <td colspan="3" class="p-0">
+                                           <div class="btn btn-sm btn-block btn-success mt-0 add-material">Add material</div>
+                                       </td>
+                                   </tr>
+                               </tfoot>
                             </table>
                          </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="form-group row">
-                            <div class="col-md-10">
-                                    <label for="material" class="col-sm-2 col-form-label col-form-label-sm">CLASS</label>
-                                    <select name="" id="" class="form-control form-control-sm">
-                                      <option value="">Seleccione...</option>
-                                            <option value="">Project Manager</option>
-                                            <option value="">Superintendent</option>
-                                            <option value="">Foreman</option>
-                                            <option value="">Painter</option>
-                                            <option value="">Paper hander</option>
-                                            <option value="">Finisher</option>
-                                            <option value="">Apprentice</option>
-                                            <option value="">Carpenter</option>
-                                            <option value="">Truck Driver/gas</option>
-                                    </select>
-                                </div>
-                            <label for="class" class="col-sm-2 col-form-label col-form-label-sm"><button type="button" class="btn btn-success">Agregar</button></label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table table-hover thead-light">
+                            <table class="table table-hover thead-light" id="table-class">
                                <thead>
                                   <tr>
                                      <th scope="col">N° workers</th>
@@ -166,17 +149,19 @@
                                      <th scope="col">Total Reg Hours</th>
                                      <th scope="col">Total Premium Hours</th>
                                      <th scope="col">Total Out Hours</th>
+                                     <th width="1%"></th>
                                   </tr>
                                </thead>
                                <tbody>
-                                  <tr>
-                                    <th><input type="number" name="" id="" step="1.0" min="0" value="0" class="form-control form-control-sm"></th>
-                                    <td><input type="text" name="" id="" class="form-control form-control-sm" readonly></td>
-                                    <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00"></td>
-                                    <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00"></td>
-                                    <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00" readonly></td>
-                                  </tr>
+                                <tr id="none_tr_class"> <td colspan="6" class="text-center">I don't add anything</td> </tr>
                                </tbody>
+                               <tfoot>
+                                    <tr>
+                                        <td colspan="6  " class="p-0">
+                                            <div class="btn btn-sm btn-block btn-success mt-0 add-class">Add worker</div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </table>
                          </div>
                     </div>
@@ -221,8 +206,47 @@
   </div>
 </div>
 @endsection
-@push('datatable')
+@push('javascript-form')
 <script>
+    td_material = `
+        <tr>
+            <td scope="row"><input type="number" name="" id="" step="1.0" min="0" value="0" class="form-control form-control-sm"></td>
+            <td><input type="text" name="" id="" class="form-control form-control-sm"></td>
+            <td> <div class="ms-btn-icon btn-danger btn-sm remove_material"><i class="fas fa-trash-alt mr-0"></i></div> </td>
+        </tr>
+    `;
+    td_class = `
+        <tr>
+            <td><input type="number" name="" id="" step="1.0" min="0" value="0" class="form-control form-control-sm"></td>
+            <td><input type="text" name="" id="" class="form-control form-control-sm" readonly></td>
+            <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00"></td>
+            <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00"></td>
+            <td><input type="time" name="" id="" class="form-control form-control-sm" value="00:00" readonly></td>
+            <td> <div class="ms-btn-icon btn-danger btn-sm remove_class"><i class="fas fa-trash-alt mr-0"></i></div> </td>
+        </tr>
+    `;
+    $(".add-material").on('click', function () {
+        $('#none_tr_mat').hide();
+        $("#table-material > tbody tr:last").after(td_material);
+    });
+    $(document).on("click", ".remove_material", function(){
+        $(this).parents("tr").remove();
+        if($('#table-material > tbody tr').length == 1)
+        {
+            $('#none_tr_mat').show();
+        }
+    });
 
+    $(".add-class").on('click', function () {
+        $('#none_tr_class').hide();
+        $("#table-class > tbody tr:last").after(td_class);
+    });
+    $(document).on("click", ".remove_class", function(){
+        $(this).parents("tr").remove();
+        if($('#table-class > tbody tr').length == 1)
+        {
+            $('#none_tr_class').show();
+        }
+    });
 </script>
 @endpush

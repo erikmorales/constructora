@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use App\Proyecto;
+use App\Material;
+use App\Personal;
 use DataTables;
 
 class TicketController extends Controller
@@ -39,7 +42,14 @@ class TicketController extends Controller
      */
     public function create($id)
     {
-        return view('panel.ticket.new',compact('id'));
+        $proyecto = Proyecto::where('Pro_ID',$id)->first();
+        $n_ticket = Ticket::count()+1;
+        $address = trim("$proyecto->Ciudad, $proyecto->Zip_Code, $proyecto->Calle");
+        $materiales = Material::where('Pro_ID',$id)->get();
+        $foreman = Personal::where('Empleado_ID',$proyecto->Foreman_ID)->first();
+        $name = (empty($foreman)) ? "" : trim($foreman->Nombre.$foreman->Apellido_Paterno.$foreman->Apellido_Materno);
+
+        return view('panel.ticket.new',compact('id','proyecto','n_ticket','name','address','materiales'));
     }
 
     /**

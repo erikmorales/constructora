@@ -74,6 +74,7 @@
   <script src="{{ asset('assets/js/jquery-ui.min.js') }}"> </script>
 
   @stack('datatable')
+  @stack('javascript-form')
   <!-- medboard core JavaScript -->
   <script src="{{ asset('assets/js/framework.js') }}"></script>
 
