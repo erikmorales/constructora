@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ClientesController extends Controller
+class UsuariosController extends Controller
 {
     public function __construct()
     {  
@@ -17,7 +17,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('panel.clientes.list');
+        
+        return view('panel.ticket.list');
     }
 
     /**
@@ -25,9 +26,21 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function alltickets()
+    {
+        return view('panel.usuarios.alltickets');
+    }
+
+    public function allprojects()
+    {
+        return view('panel.usuarios.allprojects');
+    }
+
+
     public function create()
     {
-        return view('panel.clientes.new');
+        return view('panel.usuarios.add');
     }
 
     /**

@@ -1,4 +1,8 @@
 @extends('layouts.panel')
+@push('css-header')
+<!-- Page Specific Css (Datatables.css) -->
+ <link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet">
+@endpush
 @section('content')
 <div class="row">
   <div class="col-md-12">

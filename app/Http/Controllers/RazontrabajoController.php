@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ClientesController extends Controller
+class RazontrabajoController extends Controller
 {
     public function __construct()
     {  
@@ -17,7 +17,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('panel.clientes.list');
+        return view('panel.Razontrabajo.list');
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('panel.clientes.new');
+        return view('panel.Razontrabajo.add');
     }
 
     /**
@@ -58,9 +58,9 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('panel.Razontrabajo.edit');
     }
 
     /**

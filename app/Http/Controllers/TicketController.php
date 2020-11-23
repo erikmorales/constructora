@@ -7,10 +7,15 @@ use App\Ticket;
 use App\Proyecto;
 use App\Material;
 use App\Personal;
+use App\Tipo_trabajo;
 use DataTables;
 
 class TicketController extends Controller
 {
+    public function __construct()
+    {  
+        $this->middleware('auth');   
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,13 +50,46 @@ class TicketController extends Controller
         $proyecto = Proyecto::where('Pro_ID',$id)->first();
         $n_ticket = Ticket::count()+1;
         $address = trim("$proyecto->Ciudad, $proyecto->Zip_Code, $proyecto->Calle");
-        $materiales = Material::where('Pro_ID',$id)->get();
         $foreman = Personal::where('Empleado_ID',$proyecto->Foreman_ID)->first();
         $name = (empty($foreman)) ? "" : trim($foreman->Nombre.$foreman->Apellido_Paterno.$foreman->Apellido_Materno);
 
-        return view('panel.ticket.new',compact('id','proyecto','n_ticket','name','address','materiales'));
+        return view('panel.ticket.new',compact('id','proyecto','n_ticket','name','address'));
     }
 
+    public function get_materiales(Request $request,$id)
+    {
+        if (!isset($request->searchTerm)) {
+            $materiales = Material::where('Pro_ID',$id)->get();
+        }
+        else {
+            $materiales = Material::where('Pro_ID',$id)->where('Denominacion','like','%'.$request->searchTerm.'%')->get();
+        }
+        $data = [];
+        foreach ($materiales as $row) {
+            $data[] = array(
+                "id"=>$row->Mat_ID, 
+                "text"=>$row->Denominacion
+            );
+        }
+       return response()->json($data);
+    }
+    public function get_class_workers(Request $request)
+    {
+        if (!isset($request->searchTerm)) {
+            $tipo_trabajo = Tipo_trabajo::all();
+        }
+        else {
+            $tipo_trabajo = Tipo_trabajo::where('nombre','like','%'.$request->searchTerm.'%')->get();
+        }
+        $data = [];
+        foreach ($tipo_trabajo as $row) {
+            $data[] = array(
+                "id"=>$row->tp_id, 
+                "text"=>$row->nombre
+            );
+        }
+       return response()->json($data);
+    }
     /**
      * Store a newly created resource in storage.
      *

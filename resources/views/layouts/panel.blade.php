@@ -18,8 +18,7 @@
   <link href="{{ asset('assets/css/jquery-ui.min.css') }}" rel="stylesheet">
   <!-- Page Specific CSS (Slick Slider.css) -->
   <link href="{{ asset('assets/css/slick.css') }}" rel="stylesheet">
-  <!-- Page Specific Css (Datatables.css) -->
-  <link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet">
+  @stack('css-header')
 
   <!-- medboard styles -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -27,6 +26,7 @@
   <link href="{{ asset('assets/css/morris.css') }}" rel="stylesheet">
   <!-- Favicon -->
   <!--<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico"> -->
+
 </head>
 
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">

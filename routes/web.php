@@ -13,18 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'LoginController@Showloginform')->name('showloginform');
-Route::post('/login', 'LoginController@login')->name('login');
-Route::post('/logout', 'LoginController@logout')->name('logout');
+Route::post('login', 'LoginController@login')->name('login');
+Route::post('logout', 'LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/proyects', 'ProyectoController@index')->name('listar.proyectos');
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('proyects', 'ProyectoController@index')->name('listar.proyectos');
 
-Route::get('/tickets/{id}', 'TicketController@index')->name('listar.tickets');
+Route::get('tickets/{id}', 'TicketController@index')->name('listar.tickets');
 
-Route::get('/ticket/{id}','TicketController@create')->name('crear.ticket');
+Route::get('new/{id}/ticket','TicketController@create')->name('crear.ticket');
+Route::post('get_materiales/{id}', 'TicketController@get_materiales')->name('get_materiales');
+Route::post('get_class_workers', 'TicketController@get_class_workers')->name('get_class_workers');
 
-Route::get('materiales', 'MaterialesController@index')->name('materiales');
+Route::get('materiales', 'MaterialesController@index')->name('listar.materiales');
+Route::get('create', 'MaterialesController@create')->name('materiales.create');
+Route::get('editmateriales', 'MaterialesController@edit')->name('editmateriales');
 
 Route::get('clientes', 'ClientesController@index')->name('clientes');
-
 Route::get('crear','ClientesController@create')->name('crear');
+
+Route::get('razon', 'RazontrabajoController@index')->name('razon');
+Route::get('razoncrear', 'RazontrabajoController@create')->name('razoncrear');
+Route::get('edit', 'RazontrabajoController@edit')->name('edit');
+
+Route::get('usuarios', 'UsuariosController@index')->name('usuarios');
+Route::get('alltickets', 'UsuariosController@alltickets')->name('alltickets');
+Route::get('allprojects', 'UsuariosController@allprojects')->name('allprojects');
+
