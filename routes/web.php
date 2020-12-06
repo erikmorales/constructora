@@ -32,11 +32,17 @@ Route::get('editmateriales', 'MaterialesController@edit')->name('editmateriales'
 Route::get('clientes', 'ClientesController@index')->name('clientes');
 Route::get('crear','ClientesController@create')->name('crear');
 
-Route::get('razon', 'RazontrabajoController@index')->name('razon');
+//Route::get('razon', 'RazontrabajoController@index')->name('razon');
+Route::resource('Razontrabajo', 'RazontrabajoController');
+Route::get('razon', 'RazontrabajoController@index')->name('listar.razon');
 Route::get('razoncrear', 'RazontrabajoController@create')->name('razoncrear');
-Route::get('edit', 'RazontrabajoController@edit')->name('edit');
+Route::get('editrazon', 'RazontrabajoController@edit')->name('editrazon');
+Route::get('delete', 'RazontrabajoController@destroy')->name('delete');
 
 Route::get('usuarios', 'UsuariosController@index')->name('usuarios');
-Route::get('alltickets', 'UsuariosController@alltickets')->name('alltickets');
-Route::get('allprojects', 'UsuariosController@allprojects')->name('allprojects');
+Route::get('alltickets', 'UsuariosController@alltickets')->name('alltickets');Route::get('allprojects', 'UsuariosController@allprojects')->name('allprojects');
 
+
+Route::resource('Tipo', 'Tipo');
+Route::get('tipo_trabajo', 'Tipo@index')->name('listar.tipo_trabajo');
+Route::get('tipo_crear', 'Tipo@create')->name('tipo_crear');

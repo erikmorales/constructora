@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Razon_Trabajo;
+use App\Tipo_trabajo;
 use DataTables;
-use App\Http\Requests\StoreRazonPost;
+use App\Http\Requests\StoreTipoPost;
 
-class RazontrabajoController extends Controller
+class Tipo extends Controller
 {
     public function __construct()
     {  
@@ -21,7 +21,7 @@ class RazontrabajoController extends Controller
     public function index()
     {
         if(request()->ajax()){
-            $data = Razon_Trabajo::select('razontrabajo.*')
+            $data = Tipo_trabajo::select('tipo_trabajo.*')
             ->get();
             
             return Datatables::of($data)
@@ -38,7 +38,7 @@ class RazontrabajoController extends Controller
                     ->rawColumns(['acciones'])
                     ->make(true);
         }
-        return view('panel.Razontrabajo.list');
+        return view('panel.tipo_trabajo.list');
       
     }
 
@@ -49,9 +49,7 @@ class RazontrabajoController extends Controller
      */
     public function create()
     {
-        return view('panel.Razontrabajo.new');
-
-    }
+        return view('panel.tipo_trabajo.new');    }
 
     /**
      * Store a newly created resource in storage.
@@ -59,10 +57,10 @@ class RazontrabajoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRazonPost $request)
+     public function store(StoreTipoPost $request)
     {
         
-        Razon_Trabajo::create($request->validated());
+        Tipo_trabajo::create($request->validated());
         return back()->with('status', 'Creado correctamente');
     }
 
@@ -83,10 +81,9 @@ class RazontrabajoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Razon_Trabajo $id)
+    public function edit($id)
     {
-        return view('panel.Razontrabajo.edit',['id' => $id]);
-        //return view('dashboard.donantes.edit',['id' => $id]);
+        //
     }
 
     /**

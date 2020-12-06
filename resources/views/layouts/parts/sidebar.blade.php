@@ -23,7 +23,8 @@
           <ul id="patient" class="collapse" aria-labelledby="patient" data-parent="#side-nav-accordion">
             <li> <a href="{{ route('listar.proyectos') }}">Projects List</a></li>
             <li> <a href="{{ route('listar.materiales') }}">Materials </a></li>
-            <li> <a href="{{ route('razon') }}">Razon del trabajo</a></li>
+            <li> <a href="{{ route('listar.razon') }}">Razon del trabajo</a></li>
+            <li> <a href="{{ route('listar.tipo_trabajo') }}">Trabajador </a></li>
           </ul>
       </li>
       <!-- /Projects -->

@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tipo_trabajo extends Model
+class Razon_Trabajo extends Model
 {
-   
-     protected $table = 'tipo_trabajo';
+	
+    protected $table = 'razontrabajo';
     public $timestamps = false;
     protected $fillable=['nombre','descripcion'];
-    protected $primaryKey = 'tipo_trabajo_id';
+    protected $primaryKey = 'id';
 }
